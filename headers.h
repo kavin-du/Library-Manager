@@ -53,53 +53,57 @@ class MusicAlbum : public Entry {
 #endif
 
 
-// #ifndef BOOK_H
-// #define BOOK_H
+#ifndef BOOK_H
+#define BOOK_H
 
-// class Book : public Entry {
-//   private:
-//     std::string author;
-//     std::string publisher;
-//     std::string edition;
+class Book : public Entry {
+  private:
+    std::string author;
+    std::string publisher;
+    std::string edition;
 
-//   public: 
+  public: 
 
-//     Book();
+    Book();
 
-//     Book(
-//       std::string name, 
-//       std::string year, 
-//       bool borrowed, 
-//       std::string borrowedBy, 
-//       std::string author, 
-//       std::string publisher,
-//       std::string edition
-//     );
-// };
+    Book(
+      std::string name, 
+      std::string year, 
+      bool borrowed, 
+      std::string borrowedBy, 
+      std::string author, 
+      std::string publisher,
+      std::string edition
+    );
 
-// #endif
+    void printDetails();
+};
+
+#endif
 
 
 
-// #ifndef FILM_H
-// #define FILM_H
+#ifndef FILM_H
+#define FILM_H
 
-// class Film : public Entry {
-//   private:
-//     std::string director;
-//     std::string language;
+class Film : public Entry {
+  private:
+    std::string director;
+    std::string language;
 
-//   public: 
-//     Film();
+  public: 
+    Film();
 
-//     Film(
-//       std::string name, 
-//       std::string year, 
-//       bool borrowed, 
-//       std::string borrowedBy, 
-//       std::string director, 
-//       std::string language
-//     );
-// };
+    Film(
+      std::string name, 
+      std::string year, 
+      bool borrowed, 
+      std::string borrowedBy, 
+      std::string director, 
+      std::string language
+    );
 
-// #endif
+    void printDetails();
+};
+
+#endif
