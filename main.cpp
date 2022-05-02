@@ -10,7 +10,8 @@ int main(int argc, char const *argv[]) {
   // entry.entryReturned();
   // entry.printDetails();
 
-  MusicAlbum musicAlbum("my entry", "2015", true, "someone", "shawn", "new label");
+  MusicAlbum m1("my entry", "2015", true, "someone", "shawn", "new label");
+  MusicAlbum m2("my entry2", "2015", true, "someddone", "shaddwn", "label");
   // musicAlbum.printDetails();
   // musicAlbum.entryReturned();
   // musicAlbum.printDetails();
@@ -27,8 +28,20 @@ int main(int argc, char const *argv[]) {
 
   Catalogue catalogue;
 
-  catalogue.addMusicAlbum(musicAlbum);
+  catalogue.addMusicAlbum(m1);
+  catalogue.addMusicAlbum(m2);
 
+  catalogue.showCatalogue();
+
+  catalogue.deleteItem('m', "sdfsdf sdf");
+  // catalogue.deleteItem('m', "my entry");
+
+  catalogue.issueItem('m', "my entry");
+  catalogue.showCatalogue();
+
+  catalogue.returnItem('m', "my entry");
+  catalogue.showCatalogue();
+  
   return 0;
 }
 

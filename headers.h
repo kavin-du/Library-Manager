@@ -5,13 +5,13 @@
 #define ENTRY_H
 
 class Entry {
-  protected:
+
+  public: 
     std::string name;
     std::string year;
     bool borrowed;
     std::string borrowedBy;
 
-  public: 
     Entry();
 
     Entry(
@@ -112,17 +112,36 @@ class Film : public Entry {
 #ifndef CATALOGUE_H
 #define CATALOGUE_H
 
+#define MUSIC_CAT 'm'
+#define BOOK_CAT 'b'
+#define FILM_CAT 'f'
+
 class Catalogue {
   private:
     std::vector<MusicAlbum> musicAlbums;
-    // books
-    // films
+    std::vector<Book> books;
+    std::vector<Film> films;
 
   public: 
-    void addMusicAlbum(MusicAlbum album);
+    void addMusicAlbum(MusicAlbum album); // category 'm'
+    void addBook(Book book); // category 'b'
+    void addFilm(Film film); // category 'f'
 
-    // remove items
-    // void printInformation();
+    void showMusicAlbums();
+    void showBooks();
+    void showFilms();
+    void showCatalogue();
+
+    int getIndexByName(char category, std::string name);
+    void deleteItem(char category, std::string name);
+
+    void chargeFees();
+    std::string getMemberNumber();
+    void issueItem(char category, std::string name);
+
+    void returnItem(char category, std::string name);
+
+    
 };
 
 #endif
