@@ -115,3 +115,12 @@ void Film::printDetails() {
       << "\nLanguage: " << this->language \
       << "\n\n";
 }
+
+
+// implementation of class Catalogue
+void Catalogue::addMusicAlbum(MusicAlbum album) {
+  this->musicAlbums.push_back(album);
+
+  for(MusicAlbum alb: this->musicAlbums)
+    alb.printDetails();
+}

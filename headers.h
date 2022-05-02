@@ -1,4 +1,5 @@
 #include <string>
+#include <vector>
 
 #ifndef ENTRY_H
 #define ENTRY_H
@@ -104,6 +105,24 @@ class Film : public Entry {
     );
 
     void printDetails();
+};
+
+#endif
+
+#ifndef CATALOGUE_H
+#define CATALOGUE_H
+
+class Catalogue {
+  private:
+    std::vector<MusicAlbum> musicAlbums;
+    // books
+    // films
+
+  public: 
+    void addMusicAlbum(MusicAlbum album);
+
+    // remove items
+    // void printInformation();
 };
 
 #endif
