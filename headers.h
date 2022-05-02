@@ -27,28 +27,30 @@ class Entry {
 
 #endif
 
-// #ifndef MUSICALBUM_H
-// #define MUSICALBUM_H
+#ifndef MUSICALBUM_H
+#define MUSICALBUM_H
 
-// class MusicAlbum : public Entry {
-//   private:
-//     string artist;
-//     string recordLabel;
+class MusicAlbum : public Entry {
+  private:
+    std::string artist;
+    std::string recordLabel;
 
-//   public: 
-//     MusicAlbum();
+  public: 
+    MusicAlbum();
 
-//     MusicAlbum(
-//       string name, 
-//       string year, 
-//       bool borrowed, 
-//       string borrowedBy, 
-//       string artist, 
-//       string recordLabel
-//     );
-// };
+    MusicAlbum(
+      std::string name, 
+      std::string year, 
+      bool borrowed, 
+      std::string borrowedBy, 
+      std::string artist, 
+      std::string recordLabel
+    );
 
-// #endif
+    void printDetails();
+};
+
+#endif
 
 
 // #ifndef BOOK_H
@@ -56,22 +58,22 @@ class Entry {
 
 // class Book : public Entry {
 //   private:
-//     string author;
-//     string publisher;
-//     string edition;
+//     std::string author;
+//     std::string publisher;
+//     std::string edition;
 
 //   public: 
 
 //     Book();
 
 //     Book(
-//       string name, 
-//       string year, 
+//       std::string name, 
+//       std::string year, 
 //       bool borrowed, 
-//       string borrowedBy, 
-//       string author, 
-//       string publisher,
-//       string edition
+//       std::string borrowedBy, 
+//       std::string author, 
+//       std::string publisher,
+//       std::string edition
 //     );
 // };
 
@@ -84,19 +86,19 @@ class Entry {
 
 // class Film : public Entry {
 //   private:
-//     string director;
-//     string language;
+//     std::string director;
+//     std::string language;
 
 //   public: 
 //     Film();
 
 //     Film(
-//       string name, 
-//       string year, 
+//       std::string name, 
+//       std::string year, 
 //       bool borrowed, 
-//       string borrowedBy, 
-//       string director, 
-//       string language
+//       std::string borrowedBy, 
+//       std::string director, 
+//       std::string language
 //     );
 // };
 

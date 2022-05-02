@@ -5,7 +5,7 @@
 
 using namespace std;
 
-// definitions of class Entry
+// implementation of the class Entry
 Entry::Entry(string name, string year,bool borrowed,string borrowedBy) {
   this->name = name;
   this->year = year;
@@ -27,9 +27,34 @@ void Entry::entryReturned() {
 }
 
 void Entry::printDetails() {
-  cout << "name: " << this->name \
-      << "\nyear: " << this->year \
-      << "\nborrowed: " << (this->borrowed ? "Yes" : "No") \
-      << "\nborrowedBy: " << this->borrowedBy \
-      << endl;
+  cout << "Name: " << this->name \
+      << "\nYear: " << this->year \
+      << "\nBorrowed: " << (this->borrowed ? "Yes" : "No") \
+      << (this->borrowed ? "\nBorrowed by: " : "") << this->borrowedBy \
+      << "\n\n";
+}
+
+
+// implementation of the class MusicAlbum
+MusicAlbum::MusicAlbum(
+  string name, 
+  string year,
+  bool borrowed,
+  string borrowedBy, 
+  string artist, 
+  string recordLabel
+) : Entry(name, year, borrowed, borrowedBy) {
+  this->artist = artist;
+  this->recordLabel = recordLabel;
+};
+
+// overriding the print function
+void MusicAlbum::printDetails() {
+  cout << "Name: " << this->name \
+      << "\nYear: " << this->year \
+      << "\nBorrowed: " << (this->borrowed ? "Yes" : "No") \
+      << (this->borrowed ? "\nBorrowed by: " : "") << this->borrowedBy \
+      << "\nArtist: " << this->artist \
+      << "\nRecord Label: " << this->recordLabel \
+      << "\n\n";
 }
