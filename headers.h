@@ -141,6 +141,7 @@ class Catalogue {
 
     void returnItem(std::string category, std::string name);
 
+    void saveToFile();
     
 };
 

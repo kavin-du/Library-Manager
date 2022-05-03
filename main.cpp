@@ -11,6 +11,27 @@ using namespace std;
  * 
  */
 
+string getCategory() {
+  string category;
+  cout << "\nm. Music Album\n" \
+          "b. Book\n" \
+          "f. Film\n" \
+          "Enter the category type: ";
+  cin >> category;
+
+  return category;
+}
+
+string getName() {
+  string name;
+
+  cout << "Name: ";
+  cin.ignore(); // ignoring previous newline character
+  getline(cin, name);
+
+  return name;
+}
+
 int main(int argc, char const *argv[]) {
 
   MusicAlbum music("my music", "2015", false, "", "shawn", "new label");
@@ -39,23 +60,15 @@ int main(int argc, char const *argv[]) {
     cin >> number;
 
     if(number == "1") {
-      string category;
-      cout << "\nm. Music Album\n" \
-              "b. Book\n" \
-              "f. Film\n" \
-              "Enter the category type: ";
-      cin >> category;
+      string category = getCategory();
+      string name = getName();
+
+      string year;
+      cout << "Year: ";
+      getline(cin, year);
 
       if(category == MUSIC_CAT) {
-        string name, year;
         string artist, recordLabel;
-
-        cout << "Name: ";
-        cin.ignore(); // ignoring previous newline character
-        getline(cin, name);
-
-        cout << "Year: ";
-        getline(cin, year);
 
         cout << "Artist: ";
         getline(cin, artist);
@@ -68,15 +81,7 @@ int main(int argc, char const *argv[]) {
         catalogue.addMusicAlbum(album);
 
       } else if(category == BOOK_CAT) {
-        string name, year;
         string author, publisher, edition;
-
-        cout << "Name: ";
-        cin.ignore();
-        getline(cin, name);
-
-        cout << "Year: ";
-        getline(cin, year);
 
         cout << "author: ";
         getline(cin, author);
@@ -92,15 +97,7 @@ int main(int argc, char const *argv[]) {
         catalogue.addBook(book);
 
       } else if(category == FILM_CAT) {
-        string name, year;
         string director, language;
-
-        cout << "Name: ";
-        cin.ignore(); // ignoring previous newline character
-        getline(cin, name);
-
-        cout << "Year: ";
-        getline(cin, year);
 
         cout << "Director: ";
         getline(cin, director);
@@ -117,24 +114,23 @@ int main(int argc, char const *argv[]) {
       cout << "[INFO] Item successfully added.\n\n";
 
     } else if(number == "2") {
-      string category;
-      cout << "\nm. Music Album\n" \
-              "b. Book\n" \
-              "f. Film\n" \
-              "Enter the category type: ";
-      cin >> category;
-
-      string name;
-
-      cout << "Name: ";
-      cin.ignore(); // ignoring previous newline character
-      getline(cin, name);
+      string category = getCategory();
+      string name = getName();      
 
       catalogue.deleteItem(category, name);
 
     } else if(number == "3") {
+      string category = getCategory();
+      string name = getName(); 
+
+      catalogue.issueItem(category, name);
       
     } else if(number == "4") {
+
+      string category = getCategory();
+      string name = getName(); 
+
+      catalogue.returnItem(category, name);
       
     } else if(number == "5") {
       catalogue.showCatalogue();
