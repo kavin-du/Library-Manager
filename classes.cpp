@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -271,5 +272,91 @@ void Catalogue::returnItem(string category, string name) {
   }
 
   cout << "[INFO] Item successfully returned.\n\n";
+
+}
+
+void Catalogue::saveToFile() {
+
+  if(this->musicAlbums.size() == 0 && this->books.size() == 0 && this->films.size() == 0) {
+    cout << "[INFO] Catalogue is empty. Nothing to save.\n\n";
+    return;
+  }
+
+  string data = "";
+  if(this->musicAlbums.size() != 0) {
+    for(MusicAlbum item : this->musicAlbums) {
+      data += "m"; // prefix
+      data += (","+item.name+","+item.year+","+(item.borrowed ? "1": "0")+","+item.borrowedBy+","+item.artist+","+item.recordLabel);
+      data += "\n";
+    }
+  } 
+  if(this->books.size() != 0) {
+    for(Book item : this->books) {
+      data += "b"; // prefix
+      data += (","+item.name+","+item.year+","+(item.borrowed ? "1": "0")+","+item.borrowedBy+","+item.author+","+item.publisher+","+item.edition);
+      data += "\n";
+    }
+  } 
+  if(this->films.size() != 0) {
+    for(Film item : this->films) {
+      data += "f"; // prefix
+      data += (","+item.name+","+item.year+","+(item.borrowed ? "1": "0")+","+item.borrowedBy+","+item.director+","+item.language);
+      data += "\n";
+    }
+  }
+
+  // open the file in write-only mode, 
+  // trunc - always replace the content rather than append to the end of file
+  ofstream write_file(FILE_NAME, ios::out | fstream::trunc);
+
+  if(write_file.is_open()) {
+    write_file << data;  // write the data
+  } else {
+    cout << "[WARN] Cannot open the file.\n\n";
+    return;
+  }
+
+  write_file.close();
+
+  cout << "[INFO] Saved to file.\n\n";
+
+}
+
+void Catalogue::loadFromFile() {
+
+  // open the file in read-only mode, 
+  ifstream read_file(FILE_NAME, ios::in);
+
+  string line, temp;
+
+  if(read_file.is_open()) {
+    string values[8];
+    int i;
+    while(getline(read_file, line)) { // read each line
+      i = 0;
+      stringstream data_stream(line);
+      while(getline(data_stream, temp, ',')) { // tokenize each line
+        values[i++] = temp;
+      }
+      
+      if(values[0] == MUSIC_CAT) {
+        MusicAlbum album(values[1], values[2], values[3] == "1" ? true : false, values[4], values[5], values[6]);
+        this->addMusicAlbum(album);
+      } else if(values[0] == BOOK_CAT) {
+        Book book(values[1], values[2], values[3] == "1" ? true : false, values[4], values[5], values[6], values[7]);
+        this->addBook(book);
+      } else if(values[0] == FILM_CAT) {
+        Film film(values[1], values[2], values[3] == "1" ? true : false, values[4], values[5], values[6]);
+        this->addFilm(film);
+      }
+    }
+  } else {
+    cout << "[WARN] Cannot open the file.\n\n";
+    return;
+  }
+
+  read_file.close();
+
+  cout << "[INFO] Data loaded successfully.\n\n";
 
 }

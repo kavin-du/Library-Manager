@@ -1,4 +1,4 @@
- #include "headers.h"
+#include "headers.h"
 
 #include <iostream>
 using namespace std;
@@ -34,15 +34,21 @@ string getName() {
 
 int main(int argc, char const *argv[]) {
 
-  MusicAlbum music("my music", "2015", false, "", "shawn", "new label");
-  Book book("my book", "2016", false, "", "my author", "new publish", "3rd edition");
-  Film film("my film", "2017", false, "", "steven", "mandarin");
+  // MusicAlbum music("my music", "2015", false, "", "shawn", "new label");
+  // MusicAlbum music2("my music2", "2019", true, "id123", "mendez", "label2");
+  // Book book("my book", "2016", false, "", "my author", "new publish", "3rd edition");
+  // Book book2("my book3", "2018", true, "velma wattson", "my author2", "new publish2", "2nd edition");
+  // Film film("my film", "2017", false, "", "steven", "mandarin");
+  // Film film2("my film2", "2011", true, "stephen hawking", "steven2", "mandarin2");
 
   Catalogue catalogue; // not in the loop
 
-  catalogue.addMusicAlbum(music);
-  catalogue.addBook(book);
-  catalogue.addFilm(film);
+  // catalogue.addMusicAlbum(music);
+  // catalogue.addMusicAlbum(music2);
+  // catalogue.addBook(book);
+  // catalogue.addBook(book2);
+  // catalogue.addFilm(film);
+  // catalogue.addFilm(film2);
 
 
   cout << "== Welcome to Library Management System ==\n";
@@ -53,6 +59,8 @@ int main(int argc, char const *argv[]) {
             "3. Issue an item \n"
             "4. Return item \n"
             "5. Print the catalog\n"
+            "6. Save to file\n"
+            "7. Load from file\n"
             "\nPress a number to continue:\n";
 
     string number;
@@ -134,6 +142,10 @@ int main(int argc, char const *argv[]) {
       
     } else if(number == "5") {
       catalogue.showCatalogue();
+    } else if(number == "6") {
+      catalogue.saveToFile();
+    } else if(number == "7") {
+      catalogue.loadFromFile();
     } else {
       cout << "[ERROR] Invalid number.\n";
     }

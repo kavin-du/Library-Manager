@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#include <fstream>
 
 #ifndef ENTRY_H
 #define ENTRY_H
@@ -32,11 +33,9 @@ class Entry {
 #define MUSICALBUM_H
 
 class MusicAlbum : public Entry {
-  private:
+  public: 
     std::string artist;
     std::string recordLabel;
-
-  public: 
     MusicAlbum();
 
     MusicAlbum(
@@ -58,12 +57,10 @@ class MusicAlbum : public Entry {
 #define BOOK_H
 
 class Book : public Entry {
-  private:
+  public: 
     std::string author;
     std::string publisher;
     std::string edition;
-
-  public: 
 
     Book();
 
@@ -88,11 +85,11 @@ class Book : public Entry {
 #define FILM_H
 
 class Film : public Entry {
-  private:
-    std::string director;
-    std::string language;
 
   public: 
+    std::string director;
+    std::string language;
+    
     Film();
 
     Film(
@@ -115,6 +112,8 @@ class Film : public Entry {
 #define MUSIC_CAT "m"
 #define BOOK_CAT "b"
 #define FILM_CAT "f"
+
+#define FILE_NAME "catalogue-data.txt"
 
 class Catalogue {
   private:
@@ -142,6 +141,8 @@ class Catalogue {
     void returnItem(std::string category, std::string name);
 
     void saveToFile();
+
+    void loadFromFile();
     
 };
 
