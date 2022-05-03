@@ -1,7 +1,15 @@
-#include "headers.h"
+ #include "headers.h"
 
 #include <iostream>
 using namespace std;
+
+/**
+ * 
+ *  compile & run - 
+ * 
+ *  g++ *.cpp *.h -Wall -o output && ./output
+ * 
+ */
 
 int main(int argc, char const *argv[]) {
 
@@ -26,22 +34,68 @@ int main(int argc, char const *argv[]) {
   // film.entryReturned();
   // film.printDetails();
 
-  Catalogue catalogue;
+  Catalogue catalogue; // not in the loop
 
-  catalogue.addMusicAlbum(m1);
-  catalogue.addMusicAlbum(m2);
+  cout << "== Welcome to Library Management System ==\n";
 
-  catalogue.showCatalogue();
+  while(1) {
+    cout << "1. Add a new item to the library \n"
+            "2. Delete an item from the library \n"
+            "3. Issue an item \n"
+            "4. Return item \n"
+            "5. Print the catalog\n"
+            "\nPress a number to continue:\n";
 
-  catalogue.deleteItem('m', "sdfsdf sdf");
-  // catalogue.deleteItem('m', "my entry");
+    string number;
 
-  catalogue.issueItem('m', "my entry");
-  catalogue.showCatalogue();
+    cin >> number;
 
-  catalogue.returnItem('m', "my entry");
-  catalogue.showCatalogue();
-  
+    if(number == "1") {
+      string category;
+      cout << "\nm. Music Album\n" \
+              "b. Book\n" \
+              "f. Film\n" \
+              "Enter the category type:\n";
+      cin >> category;
+
+      if(category == MUSIC_CAT) {
+        string name, year;
+        string artist, recordLabel;
+
+        cout << "Name: \n";
+        cin.ignore();
+        getline(cin, name);
+
+        cout << "Year: \n";
+        cin >> year;
+
+        cout << "Artist: \n";
+        cin.ignore();
+        getline(cin, artist);
+
+        cout << "Record Label: \n";
+        getline(cin, recordLabel);
+
+        MusicAlbum album(name, year, false, "", artist, recordLabel);
+
+        catalogue.addMusicAlbum(album);
+
+        cout << "[INFO] Item successfully added.\n\n";
+      }
+
+    } else if(number == "2") {
+      
+    } else if(number == "3") {
+      
+    } else if(number == "4") {
+      
+    } else if(number == "5") {
+      catalogue.showCatalogue();
+    } else {
+      cout << "[ERROR] Invalid number.\n";
+    }
+  }
+
   return 0;
 }
 

@@ -112,9 +112,9 @@ class Film : public Entry {
 #ifndef CATALOGUE_H
 #define CATALOGUE_H
 
-#define MUSIC_CAT 'm'
-#define BOOK_CAT 'b'
-#define FILM_CAT 'f'
+#define MUSIC_CAT "m"
+#define BOOK_CAT "b"
+#define FILM_CAT "f"
 
 class Catalogue {
   private:
@@ -132,14 +132,14 @@ class Catalogue {
     void showFilms();
     void showCatalogue();
 
-    int getIndexByName(char category, std::string name);
-    void deleteItem(char category, std::string name);
+    int getIndexByName(std::string category, std::string name);
+    void deleteItem(std::string category, std::string name);
 
     void chargeFees();
     std::string getMemberNumber();
-    void issueItem(char category, std::string name);
+    void issueItem(std::string category, std::string name);
 
-    void returnItem(char category, std::string name);
+    void returnItem(std::string category, std::string name);
 
     
 };

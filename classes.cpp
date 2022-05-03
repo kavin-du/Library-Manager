@@ -171,7 +171,7 @@ void Catalogue::showCatalogue(){
 
 
 // helper function to get the index
-int Catalogue::getIndexByName(char category, string name) {
+int Catalogue::getIndexByName(string category, string name) {
   if(category == MUSIC_CAT) {
     for(size_t i=0; i < this->musicAlbums.size(); i++) {
       if(this->musicAlbums[i].name == name) {
@@ -197,7 +197,7 @@ int Catalogue::getIndexByName(char category, string name) {
   return -99; // return negative index if not found
 }
 
-void Catalogue::deleteItem(char category, string name) {
+void Catalogue::deleteItem(string category, string name) {
   int index = getIndexByName(category, name);
   if(index < 0) {
     cout << "[ERROR] Item not found\n\n";
@@ -229,7 +229,7 @@ string Catalogue::getMemberNumber() {
   return number;
 }
 
-void Catalogue::issueItem(char category, string name) {
+void Catalogue::issueItem(string category, string name) {
   int index = getIndexByName(category, name);
   if(index < 0) {
     cout << "[ERROR] Item not found\n\n";
@@ -255,7 +255,7 @@ void Catalogue::issueItem(char category, string name) {
 
 }
 
-void Catalogue::returnItem(char category, string name) {
+void Catalogue::returnItem(string category, string name) {
   int index = getIndexByName(category, name);
   if(index < 0) {
     cout << "[ERROR] Item not found\n\n";
