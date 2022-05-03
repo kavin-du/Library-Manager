@@ -13,28 +13,16 @@ using namespace std;
 
 int main(int argc, char const *argv[]) {
 
-  // Entry entry("my entry", "2015", true, "someone");
-  // entry.printDetails();
-  // entry.entryReturned();
-  // entry.printDetails();
-
-  MusicAlbum m1("my entry", "2015", true, "someone", "shawn", "new label");
-  MusicAlbum m2("my entry2", "2015", true, "someddone", "shaddwn", "label");
-  // musicAlbum.printDetails();
-  // musicAlbum.entryReturned();
-  // musicAlbum.printDetails();
-
-  // Book book("my entry", "2015", true, "micheal", "my author", "new publish", "new edition");
-  // book.printDetails();
-  // book.entryReturned();
-  // book.printDetails();
-
-  // Film film("my entry", "2015", true, "someone", "steven", "mandarin");
-  // film.printDetails();
-  // film.entryReturned();
-  // film.printDetails();
+  MusicAlbum music("my music", "2015", false, "", "shawn", "new label");
+  Book book("my book", "2016", false, "", "my author", "new publish", "3rd edition");
+  Film film("my film", "2017", false, "", "steven", "mandarin");
 
   Catalogue catalogue; // not in the loop
+
+  catalogue.addMusicAlbum(music);
+  catalogue.addBook(book);
+  catalogue.addFilm(film);
+
 
   cout << "== Welcome to Library Management System ==\n";
 
@@ -133,20 +121,17 @@ int main(int argc, char const *argv[]) {
       cout << "\nm. Music Album\n" \
               "b. Book\n" \
               "f. Film\n" \
-              "Enter the category type:\n";
+              "Enter the category type: ";
       cin >> category;
 
-      if(category == MUSIC_CAT) {
-        string name;
+      string name;
 
-        cout << "Name: \n";
-        cin.ignore();
-        getline(cin, name);
+      cout << "Name: ";
+      cin.ignore(); // ignoring previous newline character
+      getline(cin, name);
 
-        // catalogue.deleteItem("m");
+      catalogue.deleteItem(category, name);
 
-        cout << "[INFO] Item successfully added.\n\n";
-      }
     } else if(number == "3") {
       
     } else if(number == "4") {

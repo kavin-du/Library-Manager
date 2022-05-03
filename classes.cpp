@@ -185,8 +185,8 @@ int Catalogue::getIndexByName(string category, string name) {
       }
     }
   } else if(category == FILM_CAT) {
-    for(size_t i=0; i < this->books.size(); i++) {
-      if(this->books[i].name == name) {
+    for(size_t i=0; i < this->films.size(); i++) {
+      if(this->films[i].name == name) {
         return static_cast<int>(i);
       }
     }
@@ -212,7 +212,7 @@ void Catalogue::deleteItem(string category, string name) {
     this->films.erase(this->films.begin() + index);
   } 
 
-  cout << name << "[INFO] Removed from the catalogue.\n\n";
+  cout << "[INFO] "<< name <<" removed from the catalogue.\n\n";
 }
 
 // member function for charging fees
