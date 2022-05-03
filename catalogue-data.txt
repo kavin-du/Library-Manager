@@ -1,0 +1,6 @@
+m,my music,2015,0,,shawn,new label
+m,my music2,2019,1,id123,mendez,label2
+b,my book,2016,0,,my author,new publish,3rd edition
+b,my book3,2018,1,velma wattson,my author2,new publish2,2nd edition
+f,my film,2017,0,,steven,mandarin
+f,my film2,2011,1,stephen hawking,steven2,mandarin2

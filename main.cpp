@@ -34,22 +34,7 @@ string getName() {
 
 int main(int argc, char const *argv[]) {
 
-  // MusicAlbum music("my music", "2015", false, "", "shawn", "new label");
-  // MusicAlbum music2("my music2", "2019", true, "id123", "mendez", "label2");
-  // Book book("my book", "2016", false, "", "my author", "new publish", "3rd edition");
-  // Book book2("my book3", "2018", true, "velma wattson", "my author2", "new publish2", "2nd edition");
-  // Film film("my film", "2017", false, "", "steven", "mandarin");
-  // Film film2("my film2", "2011", true, "stephen hawking", "steven2", "mandarin2");
-
-  Catalogue catalogue; // not in the loop
-
-  // catalogue.addMusicAlbum(music);
-  // catalogue.addMusicAlbum(music2);
-  // catalogue.addBook(book);
-  // catalogue.addBook(book2);
-  // catalogue.addFilm(film);
-  // catalogue.addFilm(film2);
-
+  Catalogue catalogue;
 
   cout << "== Welcome to Library Management System ==\n";
 
