@@ -55,36 +55,98 @@ int main(int argc, char const *argv[]) {
       cout << "\nm. Music Album\n" \
               "b. Book\n" \
               "f. Film\n" \
-              "Enter the category type:\n";
+              "Enter the category type: ";
       cin >> category;
 
       if(category == MUSIC_CAT) {
         string name, year;
         string artist, recordLabel;
 
-        cout << "Name: \n";
-        cin.ignore();
+        cout << "Name: ";
+        cin.ignore(); // ignoring previous newline character
         getline(cin, name);
 
-        cout << "Year: \n";
-        cin >> year;
+        cout << "Year: ";
+        getline(cin, year);
 
-        cout << "Artist: \n";
-        cin.ignore();
+        cout << "Artist: ";
         getline(cin, artist);
 
-        cout << "Record Label: \n";
+        cout << "Record Label: ";
         getline(cin, recordLabel);
 
         MusicAlbum album(name, year, false, "", artist, recordLabel);
 
         catalogue.addMusicAlbum(album);
 
-        cout << "[INFO] Item successfully added.\n\n";
+      } else if(category == BOOK_CAT) {
+        string name, year;
+        string author, publisher, edition;
+
+        cout << "Name: ";
+        cin.ignore();
+        getline(cin, name);
+
+        cout << "Year: ";
+        getline(cin, year);
+
+        cout << "author: ";
+        getline(cin, author);
+
+        cout << "Publisher: ";
+        getline(cin, publisher);
+
+        cout << "Edition: ";
+        getline(cin, edition);
+
+        Book book(name, year, false, "", author, publisher, edition);
+
+        catalogue.addBook(book);
+
+      } else if(category == FILM_CAT) {
+        string name, year;
+        string director, language;
+
+        cout << "Name: ";
+        cin.ignore(); // ignoring previous newline character
+        getline(cin, name);
+
+        cout << "Year: ";
+        getline(cin, year);
+
+        cout << "Director: ";
+        getline(cin, director);
+
+        cout << "Language: ";
+        getline(cin, language);
+
+        Film film(name, year, false, "", director, language);
+
+        catalogue.addFilm(film);
+
       }
 
+      cout << "[INFO] Item successfully added.\n\n";
+
     } else if(number == "2") {
-      
+      string category;
+      cout << "\nm. Music Album\n" \
+              "b. Book\n" \
+              "f. Film\n" \
+              "Enter the category type:\n";
+      cin >> category;
+
+      if(category == MUSIC_CAT) {
+        string name;
+
+        cout << "Name: \n";
+        cin.ignore();
+        getline(cin, name);
+
+        // catalogue.deleteItem("m");
+
+        cout << "[INFO] Item successfully added.\n\n";
+      }
     } else if(number == "3") {
       
     } else if(number == "4") {
